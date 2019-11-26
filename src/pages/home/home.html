@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Primier
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showPurcheses()">
+        <ion-badge *ngIf="n" color="accet"></ion-badge>
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+ <ion-list>
+   <ion-item *ngFor="let book of bookList">
+
+     <h2 ion-text color="primary">{{book.name}}</h2>
+       <label>bookPrice:{{book.bookPrice}}</label>
+     <br>
+     <label>auther:{{book.auther}}</label>
+     <ion-thumbnail slot="start">
+       <ion-img [src]="book.picture"></ion-img>
+     </ion-thumbnail>
+     <button ion-button color="#2322" (click)="addFavorite(book.name)">addFavorite</button>
+         <button ion-button color="#2322" (click)="addComment(book._id)">addComment</button>
+     <button ion-button color="#2322" (click)="purchese()">purchese</button>
+     <button ion-button color="#2322" (click)="rating(book._id)">rate</button>
+     <ion-list>
+       <ion-list>
+       </ion-list>
+       <ion-item-sliding  *ngFor="let commen of bookComment">
+       <ion-item>
+         <p *ngIf="commen.book == book._id">{{commen.comment}}</p>
+       </ion-item>
+         <ion-item-options>
+           <button ion-button color="danger" expandable (click)="removeComment(commen._id)">Delete</button>
+         </ion-item-options>
+       </ion-item-sliding>
+     </ion-list>
+   </ion-item>
+ </ion-list>
+</ion-content>

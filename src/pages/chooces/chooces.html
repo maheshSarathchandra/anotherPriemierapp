@@ -1,0 +1,23 @@
+<!--
+  Generated template for the ChoocesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-image">
+  <ion-list>
+    Welcome : <h2>{{profie}}</h2>
+  </ion-list>
+<button ion-button (click)="openRtPage()" *ngIf="hideme">Customer</button>
+  <button ion-button (click)="openRtsPage()" *ngIf="hideme">Suplyer</button>
+
+</ion-content>
